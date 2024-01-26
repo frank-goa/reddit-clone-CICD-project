@@ -27,10 +27,8 @@ pipeline {
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh ''
-                    '$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=reddit-clone-CICD-project \
-                    -Dsonar.projectKey=reddit-clone-CICD-project'
-                    ''
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=reddit-clone-CICD-project \
+                    -Dsonar.projectKey=reddit-clone-CICD-project'''
                 }
             }
         }
